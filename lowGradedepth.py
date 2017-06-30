@@ -165,7 +165,7 @@ def mcode(ite):
             se = se+1
 
             X_features_train1, X_features_test1, w1, pred1 = rf_dis(n_trees=ntrees, X=dataX, Y=Y, train_indices=train_in,
-                                                                test_indices=test_in, seed=se)
+                                                                test_indices=test_in, seed=se,md = md)
             e = onn( train_y=Y[train_in],test_x=X_features_test1,test_y=Y[test_in])
             e2 = knn(n_neb=1, train_x=X_features_train1, train_y=Y[train_in], test_x=X_features_test1, test_y=Y[test_in])
             e3 = RF(n_trees=500,seed=se,train_x=X_features_train1, train_y=Y[train_in], test_x=X_features_test1, test_y=Y[test_in])
